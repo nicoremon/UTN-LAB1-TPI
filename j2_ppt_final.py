@@ -14,12 +14,6 @@ def ppt():
     # Definicion de Variables del juego
     victorias_jugador = 0
     victorias_pc = 0
-
-    ganando = 0
-    perdiendo = 0
-
-    Maxju = 0
-
     jugando = True
 
     # Funcion para validar que el numero ingresado este entre 1 y 3 y no sea una letra
@@ -29,26 +23,24 @@ def ppt():
         abecedario = 'abcdefghijklmnñopqrstuvwxyz'
         while not es_valido:
             opcion = input("Elige tu opcion: 1 (Piedra) - 2 (Papel) - 3 (Tijeras) ")
-            if opcion not in abecedario and len(opcion) == 1:
-                if int(opcion) in numeros:
-                    es_valido = True
+            if (opcion not in abecedario) and (len(opcion) == 1) and (int(opcion) in numeros):
+                es_valido = True
             else:
                 print("No has elegido una opcion correcta, vuelve a intentar")
 
         return opcion
 
-    #elegir eleatorio -random- elegir jugador.
-    # Tambien se puede usar random.randrange (1, 4) el 4 no es considerado.
+    # Elegir eleatorio -random- elegir jugador.
     while jugando:
         # En cada ciclo se genera una opcion aleatoria para la PC
         aleatorio = random.randint(1, 3)
         Pc = ""
         Usuario = ""
 
-        # Se llama a la funcion que brinda las opciones al usuario
+        # Se solicita al usuario que ingrese su eleccion verificando que sea valida (solo numeros del 1 al 3)
         eleccion = opcion()
 
-        #aqui comienza el recorrido de la eleccion del usuario
+        # Aqui comienza el recorrido de la eleccion del usuario
         if int(eleccion) == 1:
             Usuario = "Piedra"
         elif int(eleccion) == 2:
@@ -67,7 +59,7 @@ def ppt():
         print("Yo elegi: ", Pc)
 
     
-    # Compara elección y va sumando las partidas ganadas o perdidas a cada jugador.
+        # Compara elección y va sumando las partidas ganadas o perdidas a cada jugador.
         if Pc == "Piedra" and Usuario == "Papel": 
             victorias_jugador += 1
             print(f"Victoria Jugador!!! Usted lleva {victorias_jugador} victorias")

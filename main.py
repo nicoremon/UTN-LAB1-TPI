@@ -4,7 +4,7 @@ from j2_ppt_final import ppt
 from j3_21_final import blackjack
 from j4_ahorcado_final import ahorcado
 
-
+# Presentacion TPI
 print(' ')
 print("**************************************************")
 print("********** Trabajo Practico Integrador  **********")
@@ -12,17 +12,17 @@ print("***** Alumnos: Trucco - Torres - Tossolini - Remon")
 print("**************************************************")
 print(' ')
 
+# Funcion para comprobar que se ingresen solo datos correctos (Numeros del 1 al 5)
 def opcion_menu():
     es_valido = False
     opciones = [1,2,3,4,5]
     abecedario = 'abcdefghijklmnñopqrstuvwxyz'
     while not es_valido:
         opcion = input("Ingresa la opcion: ")
-        if opcion not in abecedario and len(opcion) == 1:
-            if int(opcion) in opciones:
-                es_valido = True
-            else:
-                print("No has elegido una opcion correcta, vuelve a intentar")
+        if (opcion not in abecedario) and (len(opcion) == 1) and (int(opcion) in opciones):
+            es_valido = True
+        else:
+            print("No has elegido una opcion correcta, vuelve a intentar")
 
     return opcion
 
