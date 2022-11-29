@@ -43,6 +43,11 @@ def adivinaNumero():
                 jugando = False 
 
 
-    print(" ")        
-    print("\t\tPresiona enter para volver al menu...")
-    k=input()
+    print(" ")
+    jugar_de_nuevo = input("Quieres volver a Jugar ? (s/n): ")
+    if jugar_de_nuevo == 's':
+        adivinaNumero()
+    else:
+        print(" ")        
+        print("\t\tPresiona enter para volver al menu...")
+        k=input()

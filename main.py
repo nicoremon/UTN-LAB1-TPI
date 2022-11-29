@@ -1,7 +1,9 @@
 # Importar Juegos y la funcion del juego
 from j1_adivinaNum_final import adivinaNumero
 from j2_ppt_final import ppt
+from j3_21_final import blackjack
 from j4_ahorcado_final import ahorcado
+
 
 print(' ')
 print("**************************************************")
@@ -46,7 +48,7 @@ def menu():
         ppt()
         menu()
     elif int(eleccion) == 3:
-        #blackjack()
+        blackjack()
         menu()
     elif int(eleccion) == 4:
         ahorcado()

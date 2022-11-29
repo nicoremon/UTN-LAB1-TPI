@@ -46,7 +46,7 @@ def ahorcado():
 
         print(' '.join(lista_oculta))
 
-    # Funcion para Verificar cada letra ingresada por usuario mientras no se quede sin vidas
+    # Funcion para Verificar cada letra ingresada por usuario
     def chequear_letra(letra_elegida, palabra_oculta, vidas, coincidencias):
 
         fin = False
@@ -171,8 +171,13 @@ def ahorcado():
         juego_terminado = terminado
 
     print(" ")
-    print("\t\tPresiona enter para volver al menu...")
-    k=input() 
+    jugar_de_nuevo = input("Quieres volver a Jugar ? (s/n): ")
+    if jugar_de_nuevo == 's':
+        ahorcado()
+    else:
+        print(" ")        
+        print("\t\tPresiona enter para volver al menu...")
+        k=input()    
     
 
 
