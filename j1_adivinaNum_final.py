@@ -13,8 +13,11 @@ def adivinaNumero():
         abecedario = 'abcdefghijklmnñopqrstuvwxyz'
         while not es_valido:
             num_elegido = input("Elige un Numero del 1 al 10: ")
-            if (num_elegido not in abecedario) and (len(num_elegido) == 1) and (int(num_elegido) in numeros):
-                es_valido = True
+            if num_elegido not in abecedario and len(num_elegido) <= 2: 
+                if int(num_elegido) in numeros:
+                    es_valido = True
+                else:
+                    print("No has elegido un numero correcto, vuelve a ingresarlo")
             else:
                 print("No has elegido un numero correcto, vuelve a ingresarlo")
 
