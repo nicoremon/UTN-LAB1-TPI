@@ -10,12 +10,12 @@ def blackjack():
         carta1=int(random.choice(rangos))
         carta2=int(random.choice(rangos))
         cartas(carta1,carta2)
-        # si la carta es igaul a 1 o a 11 le pregunta al jugador que valor quiere usar
+        # si la carta es igual a 1 o a 11 le pregunta al jugador que valor quiere usar
         if carta1==1 or carta1==11:
-            carta1=int(input("Que valor quiere que tenga la carta as, 1 o 11? "))
+           carta1 = valorAs()
         
         if carta2==1 or carta2==11:
-            carta2=int(input("Que valor quiere que tenga la carta as, 1 o 11? "))
+            carta2 = valorAs()
         
         return carta1 + carta2
 
@@ -31,12 +31,30 @@ def blackjack():
     def cartas_dealer(palo1):
         print('cartas dealer: '+str(palo1) +random.choice(palos))
 
+    def valorAs():
+        while True:
+            valorAs = 0
+            valoresCorrectos = [1,11]
+            try:
+                valorAs = int(input("Que valor quiere que tenga la carta As, 1 o 11? "))
+            except ValueError:
+                print("Debes escribir el número 1 u 11.")
+                continue
+
+            if valorAs not in valoresCorrectos:
+                print("Debes escribir el número 1 u 11.")
+                continue
+            else:
+                break
+
+        return valorAs
+
     # funcion para tirar carta cuando solicita el jugador
     def tirar_carta():
         num=int(random.choice(rangos))
         print("La nueva carta del jugador es: ", str(num)+random.choice(palos))
         if num == 1 or num == 11:
-            numm = int(input("Que valor quiere que tenga la carta as, 1 o 11? "))
+            num = valorAs()
             print("La nueva carta del jugador es: ", str(num)+random.choice(palos))
             print()
         return num
@@ -60,7 +78,7 @@ def blackjack():
 
     if total_jugador == 21:
         juego_jugador = False
-        juego_dealer = False
+        juego_dealer = True
     #mientras que el total del jugador sea menor a 21 pregunta si quiere otra carta
     juego_jugador = True
     juego_dealer = True
@@ -119,10 +137,11 @@ def blackjack():
 
     print(" ")
     jugar_de_nuevo = input("Quieres volver a Jugar ? (s/n): ")
-    if jugar_de_nuevo == 's':
+    if jugar_de_nuevo == 's' or jugar_de_nuevo == 'S':
         blackjack()
     else:
         print(" ")        
         print("\t\tPresiona enter para volver al menu...")
-        k=input()    
+        k=input()
+
 

@@ -14,15 +14,20 @@ print(' ')
 
 # Funcion para comprobar que se ingresen solo datos correctos (Numeros del 1 al 5)
 def opcion_menu():
-    es_valido = False
-    opciones = [1,2,3,4,5]
-    abecedario = 'abcdefghijklmnñopqrstuvwxyz'
-    while not es_valido:
-        opcion = input("Ingresa la opcion: ")
-        if (opcion not in abecedario) and (len(opcion) == 1) and (int(opcion) in opciones):
-            es_valido = True
+    while True:
+        opcion = 0
+        opciones = [1,2,3,4,5]
+        try:
+            opcion = int(input("Ingresa la opcion: "))
+        except ValueError:
+            print("Debes escribir un número entre 1 y 5.")
+            continue
+
+        if opcion not in opciones:
+            print("Debes escribir un número entre 1 y 5.")
+            continue
         else:
-            print("No has elegido una opcion correcta, vuelve a intentar")
+            break
 
     return opcion
 

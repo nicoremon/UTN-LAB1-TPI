@@ -8,18 +8,20 @@ def adivinaNumero():
 
     # Funcion para Solicitar numero al usuario y verificar si es valido
     def pedir_num():
-        es_valido = False
-        numeros = [1,2,3,4,5,6,7,8,9,10]
-        abecedario = 'abcdefghijklmnñopqrstuvwxyz'
-        while not es_valido:
-            num_elegido = input("Elige un Numero del 1 al 10: ")
-            if num_elegido not in abecedario and len(num_elegido) <= 2: 
-                if int(num_elegido) in numeros:
-                    es_valido = True
-                else:
-                    print("No has elegido un numero correcto, vuelve a ingresarlo")
+        while True:
+            num_elegido = 0
+            numeros = [1,2,3,4,5,6,7,8,9,10]
+            try:
+                num_elegido = int(input("Ingresa la opcion: "))
+            except ValueError:
+                print("Debes escribir un número entre 1 y 10.")
+                continue
+
+            if num_elegido not in numeros:
+                print("Debes escribir un número entre 1 y 10.")
+                continue
             else:
-                print("No has elegido un numero correcto, vuelve a ingresarlo")
+                break
 
         return num_elegido
         

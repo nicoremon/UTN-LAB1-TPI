@@ -16,17 +16,22 @@ def ppt():
     victorias_pc = 0
     jugando = True
 
-    # Funcion para validar que el numero ingresado este entre 1 y 3 y no sea una letra
+    # Funcion para Solicitar numero al usuario y verificar si es valido
     def opcion():
-        es_valido = False
-        numeros = [1,2,3]
-        abecedario = 'abcdefghijklmnñopqrstuvwxyz'
-        while not es_valido:
-            opcion = input("Elige tu opcion: 1 (Piedra) - 2 (Papel) - 3 (Tijeras) ")
-            if (opcion not in abecedario) and (len(opcion) == 1) and (int(opcion) in numeros):
-                es_valido = True
+        while True:
+            opcion = 0
+            numeros = [1,2,3]
+            try:
+                opcion = int(input("Ingresa la opcion: "))
+            except ValueError:
+                print("Debes escribir un número entre 1 y 3.")
+                continue
+
+            if opcion not in numeros:
+                print("Debes escribir un número entre 1 y 3.")
+                continue
             else:
-                print("No has elegido una opcion correcta, vuelve a intentar")
+                break
 
         return opcion
 
